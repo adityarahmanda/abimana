@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+<!--
+	BLOG DETAILS:
+	{Title}
+	{BlogURL}
+	
+	THEME DETAILS:
+	Abimana
+	
+	THEME COPYRIGHT:
+	Copyright @2020 by Aditya Rahmanda 
+	Creative Common Licence
+	
+	Do not remove this copyright notice.
+	By using this theme you agree to the terms of use.
+	-->
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{Title}</title>
+    
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}
+        <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    <meta name="google-site-verification" content="t0tCXHYbuUkkRRGbD63gh8iIyIMw_4cn7DS5OzOXAX0" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add icon library -->
+    <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' rel='stylesheet'/>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    
+    <!-- DEFAULT COLORS -->
+    <meta name="color:Background" content="#fff"/>
+    <meta name="color:Heading text" content="#333"/>
+    <meta name="color:Text" content="#333"/>
+    <meta name="color:Link" content="#333"/>
+    <meta name="color:Link hover" content="#777"/>
+    
+    <!-- DEFAULT FONTS -->
+    <meta name="font:Title" content="Lato, sans-serif"/>
+    <meta name="font:Body" content="Lato, sans-serif"/>
+    
+    <!-- DARK MODE TOGGLE -->
+    <meta name="if:Dark Mode" content="0"/>
+    
+    <!-- SOCIAL MEDIA -->
+    <meta name="text:Social Media Name 1" content="facebook"/>
+    <meta name="text:Social Media URL 1" content="#"/>
+    <meta name="text:Social Media Name 2" content="twitter"/>
+    <meta name="text:Social Media URL 2" content="#"/>
+    <meta name="text:Social Media Name 3" content="instagram"/>
+    <meta name="text:Social Media URL 3" content="#"/>
+    <meta name="text:Social Media Name 4" content="linkedin"/>
+    <meta name="text:Social Media URL 4" content="#"/>
+    
+    <style type="text/css">
+    body {
+        color: {color:Text};
+        background-color: {color:Background};
+        font-family: {font:Body};
+        font-size: 15px;
+    }
+    
+.outer-wrapper {
+    max-width: 1040px;
+    margin: 36px auto;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+main {
+    padding-top: 40px;
+}
+
+a {
+    color : {color:Link};
+}
+
+a:hover {
+    color : {color:Link hover};
+    text-decoration: none;
+}
+
+aside {
+    padding-top: 40px;
+    padding-left: 40px;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 24px 0;
+    font-weight: 700;
+}
+
+.post-container {
+    max-width: 500px;
+}
+
+.profile, .social-link {
+    margin-bottom: 18px;
+}
+
+.profile-picture {
+    margin-bottom: 13px;
+}
+
+.profile-title {
+    color: {color:Heading text};
+    font-family: {font:Title};
+    font-size : 24px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.profile-description {
+    font-size : 14px;
+}
+
+.social-link {
+    bottom: 36px;
+    font-size: 24px;
+}
+
+.fas, .fa, .fab {
+      color : #333;
+}
+
+/* Style all font awesome icons */
+.social-link a {
+  padding-right: 20px;
+}
+
+.post-row {
+    margin-bottom : 63px;
+}
+
+.post-row ul {
+    padding-top : 10px;
+}
+
+.post-caption {
+    padding-top : 12px;
+}
+
+.post-text img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-row p {
+    margin-bottom: 12px;
+}
+
+figure {
+    margin: 0 0 10px;
+}
+
+.left-align {
+    text-align: left;
+    float: left;
+}
+
+.right-align {
+    text-align: right;
+    float: right;
+}
+
+.btn {
+    border-radius : 0px;
+}
+
+.btn-secondary {
+    background-color : #333;
+}
+
+.footer-wrapper {
+  	border-top: 1px solid #eee;
+  	padding-top: 24px;
+  	font-size: 14px;
+	clear: both;
+}
+
+svg {
+   width:14px;
+   height:auto;
+   display:block;
+   overflow:visible;
+}
+.controls a {
+   height: 18px;
+   position:relative;
+   display:inline-block;
+   overflow:hidden;
+   color:#777;
+}
+.controls .like .liked + svg {
+   opacity:1;
+}
+.controls .like .liked + svg path {
+   fill: #333;
+}
+.controls .like .like_button {
+   position:relative;
+}
+.controls .like .like_button iframe {
+   position:absolute;
+   top:0;
+   left:0;
+   bottom:0;
+   right:0;
+   z-index:2;
+   opacity:0;
+}
+
+.lightbox {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  padding: 100px 0px 100px 0px;
+}
+
+.modal-close {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: auto;
+  max-width: 700px;
+}
+
+.modal-content {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    outer-wrapper {
+        max-width: 1280px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile, .social-link {
+        position : relative;
+        margin-bottom : 24px;
+    }
+
+    aside {
+        padding: 40px;
+    }
+
+    .social-link {
+        bottom: 0;
+    }
+    
+    .modal-content {
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+{block:IfDarkMode}
+body {
+    color: #fff;
+    background-color: #333;
+}
+
+a {
+    color : #fff;
+}
+
+a:hover {
+    color : #ccc;
+}
+
+.profile-title {
+    color: #fff;
+}
+
+.fas, .fa, .fab {
+      color : #fff;
+}
+
+.controls a {
+   color:#777;
+}
+
+.controls .like .liked + svg path {
+   fill: #fff;
+}
+
+.footer-wrapper {
+  	border-top: 1px solid #555;
+}
+{/block:IfDarkMode}
+
+{CustomCSS}
+</style>
+  </head>
+  <body>
+  
+  <!-- Post Section -->
+<!-- Container -->
+<div class='outer-wrapper' id='outer-wrapper'>
+	
+  	<!-- Sidebar -->
+	<aside class='sidebar-wrapper col-md-4'>
+    <div class="profile">
+        <a href="{BlogURL}"><img class="profile-picture rounded-circle" src="{PortraitURL-96}" alt="Card image cap"></a>
+        <a href="{BlogURL}"><h2 class="profile-title">{Title}</h2></a>
+        <span class="profile-description">{Description}</span>
+    </div>
+
+    <div class="social-link">
+        <a href="{text:Social Media URL 1}" class="fab fa-{text:Social Media Name 1}" target="_blank"></a>
+        <a href="{text:Social Media URL 2}" class="fab fa-{text:Social Media Name 2}" target="_blank"></a>
+        <a href="{text:Social Media URL 3}" class="fab fa-{text:Social Media Name 3}" target="_blank"></a>
+        <a href="{text:Social Media URL 4}" class="fab fa-{text:Social Media Name 4}" target="_blank"></a>
+      </div>
+  </aside>
+
+  <!-- Post Section -->
+  <main class="main col-md-8" role="main">  
+    
+    <div class="post-container mx-auto">
+    
+    {block:Posts}  
+        {block:Text}
+        <div class="post-row post-text"> 
+            {block:Title}
+                <h3 class="post-title">{Title}</h3>
+            {/block:Title}
+            {Body}
+            <ul class="list-inline">
+                <li class="post-reblog list-inline-item">
+                    <a href="{ReblogURL}" class="fas fa-retweet"></a></li>
+                    <li class="post-love list-inline-item controls"><a href="#" class="like align-middle">{LikeButton}
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+</a></li>
+                {block:NoteCount}
+                <li class="post-notes list-inline-item">{NoteCountWithLabel}</li>{/block:NoteCount}
+                {block:Date}
+                <li class="post-date list-inline-item right-align">{ShortMonth} {DayOfMonth}</li>{/block:Date}
+            </ul>
+            {block:PostNotes}
+                <div class="post-notes">{PostNotes}</div>
+            {/block:PostNotes}
+        </div>
+        {/block:Text}
+        
+        <!-- Photoset -->
+        {block:Photoset}
+            {block:Photos}
+            <img src="{PhotoURL-500}"
+                width="{PhotoWidth-500}"height="{PhotoHeight-500}" />
+    
+            {block:Caption}<div class="post-caption">{Caption}</div>{/block:Caption}
+            {block:Exif}<ul>...</ul>{/block:Exif}
+            {/block:Photos}
+            {block:Caption}<div class="post-caption">{Caption}</div>{/block:Caption}
+        {/block:Photoset}
+    
+        <!-- Image post -->
+        {block:Photo}
+        <div class="post-row post-image"> 
+        <img class="img-fluid lightbox" src="{PhotoURL-500}" alt="Card image cap">
+        {block:Caption} 
+            <div class="post-caption">{Caption}</div>
+        {/block:Caption}
+            <ul class="list-inline">
+                <li class="post-reblog list-inline-item">
+                    <a href="{ReblogURL}" class="fas fa-retweet"></a></li>
+                    <li class="post-love list-inline-item controls"><a href="#" class="like align-middle">{LikeButton}
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+</a></li>
+                {block:NoteCount}
+                <li class="post-notes list-inline-item">{NoteCountWithLabel}</li>{/block:NoteCount}
+                {block:Date}
+                <li class="post-date list-inline-item right-align">{ShortMonth} {DayOfMonth}</li>{/block:Date}
+            </ul>
+            
+            {block:PostNotes}
+                <div class="post-notes">{PostNotes}</div>
+            {/block:PostNotes}
+        </div>
+        {/block:Photo}
+        
+    {/block:Posts}
+
+    <script>var posts = new Array();</script>
+        {block:Posts}
+            <script>
+                posts[{PostId}] = {NPF};
+            </script>
+                            
+        {/block:Posts}
+    <div id="post-list"></div>
+    
+    <!-- Pagination -->
+    <p class="text-center">
+        {block:PreviousPage}
+        <a href="{PreviousPage}" class="btn btn-secondary left-align">Previous</a>
+        {/block:PreviousPage}
+        {block:NextPage}
+        <a href="{NextPage}" class="btn btn-secondary right-align">Next</a>
+        {/block:NextPage}
+    </p>
+  </div>
+</div>
+
+<footer class='footer-wrapper' id='footer-wrapper'>
+			<div class='copyright' style='text-align: center;'>
+    		 Copyright &#169; 2020 <a href='https://adityarahmanda.com/' id='adityarahmanda' ref='dofollow' title='Aditya Rahmanda'>Aditya Rahmanda</a>. All rights reserved.
+			</div>
+		</footer>
+</main>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div id="modalClose" class="modal-close"></div>
+    <img id="modalImage" class="modal-content">
+</div>
+
+<!-- Modal Image -->        
+<script>
+//Adding 'lightbox' class to every image in post
+var divs = document.querySelectorAll('.tmblr-full img');
+for (var i = 0; i < divs.length; i++) {
+    divs[i].classList.add('lightbox');
+}
+
+// create references to the modal...
+var modal = document.getElementById('myModal');
+// to all images -- note I'm using a class!
+var images = document.getElementsByClassName('lightbox');
+// the image in the modal
+var modalImg = document.getElementById("modalImage");
+
+// Go through all of the images with our custom class
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  // and attach our click listener for this image.
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
+
+// the image in the modal
+var closeModal = document.getElementById("modalClose");
+
+closeModal.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+</script>
+  </body>
+</html>
